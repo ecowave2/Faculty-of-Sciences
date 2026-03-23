@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faculty of Science – Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Montserrat', sans-serif; background: #eef2f7; color: #333; line-height:1.6; }
+    a { color: #004080; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header { background: linear-gradient(90deg, #0f3d91, #1e6fc1); color:#fff; padding:20px 0; position: sticky; top:0; z-index:1000; }
+    header img { height:60px; margin-bottom:10px; }
+    header h1 { text-align:center; font-size:2em; margin-bottom:10px; }
+    nav { display:flex; justify-content:center; gap:30px; margin-bottom:10px; flex-wrap: wrap; }
+    nav a { color:#fff; font-weight:600; padding:8px 15px; border-radius:6px; transition:background 0.3s; }
+    nav a:hover { background: rgba(255,255,255,0.2); }
+
+    .container { max-width: 1000px; margin:30px auto; padding:0 20px; }
+
+    .card { background:#fff; padding:25px; margin-bottom:25px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card:hover { transform: translateY(-5px); box-shadow:0 12px 25px rgba(0,0,0,0.15); }
+    .card h2 { color:#0f3d91; margin-bottom:15px; font-size:1.8em; }
+    .card h3 { color:#1e6fc1; margin-bottom:12px; font-size:1.4em; }
+    .card p { margin-bottom:15px; font-size:1em; color:#444; }
+
+    .highlight { background: linear-gradient(90deg,#fff3cd,#ffe8a1); border-left:6px solid #ffc107; padding:15px; border-radius:8px; font-style: italic; box-shadow: inset 0 0 5px rgba(0,0,0,0.05); }
+
+    footer { text-align:center; padding:25px; font-size:0.9em; color:#666; margin-top:40px; border-top:1px solid #ddd; background:#f9f9f9; }
+
+    section { display:none; }
+    section.active { display:block; }
+
+    table { width:100%; border-collapse: collapse; margin-top:15px; }
+    th, td { border:1px solid #ddd; padding:12px; text-align:left; }
+    th { background:#0f3d91; color:#fff; }
+    tr:hover { background:#f1f1f1; }
+
+    @media(max-width:768px){ header h1{font-size:1.8em;} nav{flex-direction:column; gap:15px;} }
+    @media(max-width:480px){ header img{height:50px;} .card{padding:20px;} .card h2{font-size:1.5em;} .card h3{font-size:1.2em;} }
+</style>
+</head>
+<body>
+
+<header>
+    <img src="https://via.placeholder.com/150x60?text=Faculty+Logo" alt="Faculty Logo">
+    <h1>Faculty of Science – Portal</h1>
+    <nav>
+        <a href="#" onclick="showSection('home')">Home</a>
+        <a href="#" onclick="showSection('incident')">Incident Reports</a>
+        <a href="#" onclick="showSection('archives')">Lab Archives</a>
+        <a href="#" onclick="showSection('donors')">Donors</a>
+        <a href="#" onclick="showSection('faculty')">Faculty Members</a>
+        <a href="#" onclick="showSection('contact')">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+
+<!-- Home -->
+<section id="home" class="active">
+    <div class="card">
+        <h2>Welcome to the Faculty of Science</h2>
+        <p>The Faculty of Science in Tunis has a long history of research excellence and community engagement. Our laboratories, research centers, and collaborative programs aim to advance knowledge and innovation in physics, chemistry, biology, and more.</p>
+        <p>Explore our archives, donor contributions, and important announcements through this portal.</p>
+    </div>
+</section>
+
+<!-- Incident Reports -->
+<section id="incident">
+    <div class="card">
+        <h2>Coma of Donor Mr. Rachid Kammoun</h2>
+        <p><strong>Date of Incident:</strong> March 10, 2026</p>
+        <p><strong>Location:</strong> Café El-Wahda, Tunis</p>
+    </div>
+    <div class="card">
+        <h3>Summary</h3>
+        <p>Mr. Kammoun, a long-time supporter of our Faculty, experienced a sudden medical collapse at Café El-Wahda. He is currently under hospital care in stable condition.</p>
+    </div>
+    <div class="card">
+        <h3>Faculty Statement</h3>
+        <p>Mr. Kammoun has significantly contributed to research funding and scholarships. We extend our deepest concern and hope for his swift recovery.</p>
+        <p class="highlight">“His generosity and commitment to advancing science will always be remembered,” remarked Prof. Harlan Cole, Dean.</p>
+    </div>
+</section>
+
+<!-- Lab Archives -->
+<section id="archives">
+    <div class="card">
+        <h2>Lab Archive Records</h2>
+        <p>Below are recent archived lab entries. Some documents may require further investigation.</p>
+        <table>
+            <tr><th>Date</th><th>Document Name</th><th>Author</th></tr>
+            <tr><td>2026-02-12</td><td>Physics Research Proposal.pdf</td><td>Prof. Harlan Cole</td></tr>
+            <tr><td>2026-02-15</td><td>Briefcase Inventory.xlsx</td><td>Rachid Kammoun</td></tr>
+            <tr><td>2026-02-18</td><td>Experiment Log #23.docx</td><td>Lab Assistant Lina</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- Donors -->
+<section id="donors">
+    <div class="card">
+        <h2>Key Donors</h2>
+        <p>Our donors play a pivotal role in advancing faculty research. Rachid Kammoun, one of our most generous contributors, has supported scholarships, lab development, and research grants over the last decade.</p>
+    </div>
+</section>
+
+<!-- Faculty Members -->
+<section id="faculty">
+    <div class="card">
+        <h2>Faculty Members</h2>
+        <p>List of current professors and their positions at the Faculty of Science, Tunis:</p>
+        <table>
+            <tr><th>Name</th><th>Department</th><th>Position</th></tr>
+            <tr><td>Harlan Cole</td><td>Physics</td><td>Dean & Professor</td></tr>
+            <tr><td>Amira Ben Youssef</td><td>Chemistry</td><td>Professor</td></tr>
+            <tr><td>Karim Mansouri</td><td>Biology</td><td>Associate Professor</td></tr>
+            <tr><td>Lina Saidi</td><td>Physics</td><td>Lab Assistant</td></tr>
+            <tr><td>Rania Trabelsi</td><td>Mathematics</td><td>Professor</td></tr>
+            <tr><td>Fares Jaziri</td><td>Computer Science</td><td>Assistant Professor</td></tr>
+            <tr><td>Yasmine Cherif</td><td>Biology</td><td>Associate Professor</td></tr>
+            <tr><td>Selim Kacem</td><td>Chemistry</td><td>Research Fellow</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <div class="card">
+        <h2>Contact Faculty of Science</h2>
+        <p><strong>Address:</strong> 12 University Ave, Tunis, Tunisia</p>
+        <p><strong>Email:</strong> contact@science.tn</p>
+        <p><strong>Phone:</strong> +216 71 234 567</p>
+        <p>Please use this portal for official inquiries only.</p>
+    </div>
+</section>
+
+</div>
+
+<footer>
+    &copy; 2026 Faculty of Science, Tunis. All rights reserved.
+</footer>
+
+<script>
+function showSection(id) {
+    document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0,0);
+}
+</script>
+
+</body>
+</html>
