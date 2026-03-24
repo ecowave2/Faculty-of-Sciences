@@ -11,53 +11,91 @@
     a { color: #12664F; text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    header { background: linear-gradient(90deg, #12664F, #21b08a); color:#fff; padding:20px 0; position: sticky; top:0; z-index:1000; }
-    header img { height:60px; margin-bottom:10px; }
-    header h1 { text-align:center; font-size:2em; margin-bottom:10px; }
+    header { background: linear-gradient(90deg, #12664F, #21b08a); color:#fff; padding:16px 0 0; position: sticky; top:0; z-index:1000; }
+
     .header-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 0 16px 12px;
+        flex-wrap: wrap;
     }
 
     .header-content img {
-        height: 90px;
+        height: 60px;
         width: auto;
         display: block;
     }
 
     .header-content h1 {
-        font-size: 2em;
+        font-size: clamp(1.2em, 4vw, 2em);
         margin: 0;
+        text-align: center;
     }
-    nav { display:flex; justify-content:center; gap:30px; margin-bottom:10px; flex-wrap: wrap; }
-    nav a { color:#fff; font-weight:600; padding:8px 15px; border-radius:6px; transition:background 0.3s; }
-    nav a:hover { background: rgba(255,255,255,0.2); }
 
-    .container { max-width: 1000px; margin:30px auto; padding:0 20px; }
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 4px;
+        flex-wrap: wrap;
+        padding: 8px 10px;
+        background: rgba(0,0,0,0.12);
+    }
 
-    .card { background:#fff; padding:25px; margin-bottom:25px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .card:hover { transform: translateY(-5px); box-shadow:0 12px 25px rgba(0,0,0,0.15); }
-    .card h2 { color:#12664F; margin-bottom:15px; font-size:1.8em; }
-    .card h3 { color:#1B8A6D; margin-bottom:12px; font-size:1.4em; }
-    .card p { margin-bottom:15px; font-size:1em; color:#444; }
+    nav a {
+        color: #fff;
+        font-weight: 600;
+        font-size: clamp(0.72em, 2.8vw, 0.9em);
+        padding: 7px 10px;
+        border-radius: 6px;
+        transition: background 0.3s;
+        white-space: nowrap;
+    }
 
-    .highlight { background: linear-gradient(90deg,#fff3cd,#ffe8a1); border-left:6px solid #ffc107; padding:15px; border-radius:8px; font-style: italic; box-shadow: inset 0 0 5px rgba(0,0,0,0.05); }
+    nav a:hover, nav a.active { background: rgba(255,255,255,0.22); text-decoration: none; }
 
-    footer { text-align:center; padding:25px; font-size:0.9em; color:#666; margin-top:40px; border-top:1px solid #ddd; background:#f9f9f9; }
+    .container { max-width: 1000px; margin: 20px auto; padding: 0 14px; }
 
-    section { display:none; }
-    section.active { display:block; }
+    .card {
+        background: #fff;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.13); }
+    .card h2 { color: #12664F; margin-bottom: 12px; font-size: clamp(1.2em, 4vw, 1.8em); }
+    .card h3 { color: #1B8A6D; margin-bottom: 10px; font-size: clamp(1.05em, 3.5vw, 1.4em); }
+    .card p { margin-bottom: 12px; font-size: 0.97em; color: #444; }
 
-    table { width:100%; border-collapse: collapse; margin-top:15px; }
-    th, td { border:1px solid #ddd; padding:12px; text-align:left; }
-    th { background:#12664F; color:#fff; }
-    tr:hover { background:#f1f1f1; }
+    .highlight {
+        background: linear-gradient(90deg, #fff3cd, #ffe8a1);
+        border-left: 6px solid #ffc107;
+        padding: 12px 14px;
+        border-radius: 0 8px 8px 0;
+        font-style: italic;
+        box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+    }
 
-    @media(max-width:768px){ header h1{font-size:1.8em;} nav{flex-direction:column; gap:15px;} }
-    @media(max-width:480px){ header img{height:50px;} .card{padding:20px;} .card h2{font-size:1.5em;} .card h3{font-size:1.2em;} }
+    footer { text-align: center; padding: 22px 16px; font-size: 0.88em; color: #666; margin-top: 30px; border-top: 1px solid #ddd; background: #f9f9f9; }
+
+    section { display: none; }
+    section.active { display: block; }
+
+    /* Scrollable table wrapper for mobile */
+    .table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    table { width: 100%; border-collapse: collapse; min-width: 420px; }
+    th, td { border: 1px solid #ddd; padding: 10px 12px; text-align: left; font-size: 0.9em; }
+    th { background: #12664F; color: #fff; }
+    tr:hover { background: #f1f1f1; }
 </style>
 </head>
 <body>
@@ -67,13 +105,12 @@
         <img src="logo_fs.png" alt="Faculty Logo">
         <h1>Faculty of Sciences</h1>
     </div>
-
     <nav>
-        <a href="#" onclick="showSection('home')">Home</a>
-        <a href="#" onclick="showSection('incident')">Reports</a>
-        <a href="#" onclick="showSection('donors')">Donors</a>
-        <a href="#" onclick="showSection('faculty')">Faculty Members</a>
-        <a href="#" onclick="showSection('contact')">Contact</a>
+        <a href="#" onclick="showSection('home')" id="nav-home" class="active">Home</a>
+        <a href="#" onclick="showSection('incident')" id="nav-incident">Reports</a>
+        <a href="#" onclick="showSection('donors')" id="nav-donors">Donors</a>
+        <a href="#" onclick="showSection('faculty')" id="nav-faculty">Faculty</a>
+        <a href="#" onclick="showSection('contact')" id="nav-contact">Contact</a>
     </nav>
 </header>
 
@@ -102,7 +139,7 @@
     <div class="card">
         <h3>Faculty Statement</h3>
         <p>Mr. Kammoun has significantly contributed to research funding and scholarships. We extend our deepest concern and hope for his swift recovery.</p>
-        <p class="highlight">“His generosity and commitment to advancing science will always be remembered,” remarked Prof. Noura Slimen.</p>
+        <p class="highlight">"His generosity and commitment to advancing science will always be remembered," remarked Prof. Noura Slimen.</p>
     </div>
 </section>
 
@@ -110,7 +147,7 @@
 <section id="donors">
     <div class="card">
         <h2>Key Donors</h2>
-        <p>Our donors play a pivotal role in advancing faculty research. <strong> Rachid Kammoun</strong>, one of our most generous contributors, has supported scholarships, lab development, and research grants over the last decade.</p>
+        <p>Our donors play a pivotal role in advancing faculty research. <strong>Rachid Kammoun</strong>, one of our most generous contributors, has supported scholarships, lab development, and research grants over the last decade.</p>
     </div>
 </section>
 
@@ -119,19 +156,21 @@
     <div class="card">
         <h2>Faculty Members</h2>
         <p>List of current professors and their positions at the Faculty of Sciences:</p>
-        <table>
-            <tr><th>Name</th><th>Department</th><th>Position</th></tr>
-            <tr><td>Anis Ben Khalil</td><td>Administration</td><td>Dean</td></tr>
-            <tr><td>Noura Slimen</td><td>Physics</td><td>Professor</td></tr>
-            <tr><td>Nizar Elloumi</td><td>Physics</td><td>Professor</td></tr>
-            <tr><td>Amira Ben Youssef</td><td>Chemistry</td><td>Professor</td></tr>
-            <tr><td>Karim Mansouri</td><td>Biology</td><td>Associate Professor</td></tr>
-            <tr><td>Lina Saidi</td><td>Computer Science</td><td>Professor</td></tr>
-            <tr><td>Rania Trabelsi</td><td>Mathematics</td><td>Professor</td></tr>
-            <tr><td>Fares Jaziri</td><td>Computer Science</td><td>Assistant Professor</td></tr>
-            <tr><td>Yasmine Cherif</td><td>Biology</td><td>Associate Professor</td></tr>
-            <tr><td>Selim Kacem</td><td>Chemistry</td><td>Research Fellow</td></tr>
-        </table>
+        <div class="table-wrap">
+            <table>
+                <tr><th>Name</th><th>Department</th><th>Position</th></tr>
+                <tr><td>Anis Ben Khalil</td><td>Administration</td><td>Dean</td></tr>
+                <tr><td>Noura Slimen</td><td>Physics</td><td>Professor</td></tr>
+                <tr><td>Nizar Elloumi</td><td>Physics</td><td>Professor</td></tr>
+                <tr><td>Amira Ben Youssef</td><td>Chemistry</td><td>Professor</td></tr>
+                <tr><td>Karim Mansouri</td><td>Biology</td><td>Associate Professor</td></tr>
+                <tr><td>Lina Saidi</td><td>Computer Science</td><td>Professor</td></tr>
+                <tr><td>Rania Trabelsi</td><td>Mathematics</td><td>Professor</td></tr>
+                <tr><td>Fares Jaziri</td><td>Computer Science</td><td>Assistant Professor</td></tr>
+                <tr><td>Yasmine Cherif</td><td>Biology</td><td>Associate Professor</td></tr>
+                <tr><td>Selim Kacem</td><td>Chemistry</td><td>Research Fellow</td></tr>
+            </table>
+        </div>
     </div>
 </section>
 
@@ -155,8 +194,10 @@
 <script>
 function showSection(id) {
     document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-    window.scrollTo(0,0);
+    document.getElementById('nav-' + id).classList.add('active');
+    window.scrollTo(0, 0);
 }
 </script>
 
